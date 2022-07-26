@@ -23,12 +23,17 @@
     "concurrently": "^7.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
     "typescript": "^4.7.4"
   },
   "scripts": {
     "commit": "cz",
     "lint": "eslint . --ext .ts,.js",
+    "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
+    "typecheck": "tsc --noEmit --incremental false",
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
