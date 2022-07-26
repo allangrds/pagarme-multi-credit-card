@@ -9,6 +9,28 @@ on:
     branches: [main]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '16' ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: npm install
+    - name: Build project
+      run: npm run build
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ '16' ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: npm install
+    - name: Run ESLint and Stylelint
+      run: npm run eslint
   commitlint:
     runs-on: ubuntu-latest
     strategy:
