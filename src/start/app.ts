@@ -1,4 +1,6 @@
-import express, { Errback, Express, NextFunction, Request, Response } from 'express'
+import express, {
+  Errback, Express, Request, Response,
+} from 'express'
 import cors from 'cors'
 
 import { router } from '../routes'
@@ -10,12 +12,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(router)
 
-app.use((req: Request, res: Response, next: NextFunction) => {
+app.use((req: Request, res: Response) => {
   res.status(404).json({ message: 'Page Not Found' })
 })
 
-app.use((err: Errback, req: Request, res: Response, next: NextFunction) => {
-  return res.status(500).json({ message: 'Internal Error' })
-})
+app.use((err: Errback, req: Request, res: Response) => res.status(500).json({ message: 'Internal Error' }))
 
 export { app }
