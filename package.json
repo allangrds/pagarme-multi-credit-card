@@ -1,13 +1,25 @@
 {
-  "devDependencies": {
-    "cz-conventional-changelog": "^3.3.0"
-  },
+  "name": "pagarme-multi-credit-card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
+  },
   "scripts": {
-    "commit": "cz"
+    "commit": "cz",
+    "start": "node index.js"
   }
 }
