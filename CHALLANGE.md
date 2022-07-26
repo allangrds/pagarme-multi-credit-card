@@ -63,6 +63,6 @@ Alguns pontos são bem importantes para o teste, esperamos que você capriche ne
 - Boas práticas de desenvolvimento.
 - Uma boa identação do código.
 - Testes, testes e mais testes. Uma boa cobertura de testes garante o
-funcionamento de sua aplicação.
+  funcionamento de sua aplicação.
 - Versionar o seu banco de dados seria bem maneiro.
 - Uma boa documentação.
