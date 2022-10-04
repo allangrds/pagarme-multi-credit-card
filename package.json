@@ -51,5 +51,8 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/start/server.js\"",
     "test": "jest",
     "clean": "rm -rf dist && rm -rf node_modules"
+  },
+  "volta": {
+    "node": "16.14.2"
   }
 }
