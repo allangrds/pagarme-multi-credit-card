@@ -1,6 +1,12 @@
 bootstrap: down kill up
 bootstrap-silent: down kill up-silent
 
+build:
+	@docker-compose build --no-cache
+
+destroy:
+	@docker-compose down --volumes
+
 down:
 	@docker-compose down
 
