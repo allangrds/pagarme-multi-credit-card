@@ -14,8 +14,8 @@ services:
       - ${PORT}:${PORT}
     restart: on-failure
     environment:
-      - DB_NAME=postgres
-      - DB_HOST=${DB_HOST}
+      - DB_NAME=${POSTGRES_NAME}
+      - DB_HOST=${POSTGRES_HOST}
     links:
       - database
     depends_on:
@@ -29,5 +29,6 @@ services:
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
     environment:
+      - POSTGRES_NAME=${POSTGRES_NAME}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
