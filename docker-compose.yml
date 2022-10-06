@@ -2,7 +2,7 @@ version: '3'
 
 services:
   api:
-    container_name: 'api'
+    container_name: api
     command: 'npm run dev'
     build: .
     env_file:
@@ -23,7 +23,7 @@ services:
 
   database:
     image: postgres:14.5-alpine
-    container_name: 'database'
+    container_name: database
     env_file:
       - .env
     ports:

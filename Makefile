@@ -14,4 +14,7 @@ up-silent:
 	@docker-compose up -d
 
 bash:
-	@docker exec -it api /bin/ash
+	@docker exec -it api /bin/bash
+
+format_prisma_schema:
+	npx prisma format
