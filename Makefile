@@ -22,5 +22,8 @@ up-silent:
 bash:
 	@docker exec -it api /bin/bash
 
-format_prisma_schema:
+prisma_format_schema:
 	npx prisma format
+
+prisma_studio:
+	npx prisma studio

@@ -3,7 +3,7 @@ version: '3'
 services:
   api:
     container_name: api
-    command: 'npm run dev'
+    command: 'npm run start:dev'
     build: .
     env_file:
       - .env
@@ -11,7 +11,7 @@ services:
       - .:/usr/app
       - /usr/app/node_modules
     ports:
-      - ${PORT}:${PORT}
+      - 3000:3000
     restart: on-failure
     environment:
       - DB_NAME=${POSTGRES_NAME}
