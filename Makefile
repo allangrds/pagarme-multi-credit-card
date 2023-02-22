@@ -1,3 +1,5 @@
+include .env
+
 bootstrap: down kill up
 bootstrap-silent: down kill up-silent
 

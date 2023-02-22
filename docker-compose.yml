@@ -9,26 +9,19 @@ services:
       - .env
     volumes:
       - .:/usr/app
-      - /usr/app/node_modules
     ports:
       - 3000:3000
     restart: on-failure
-    environment:
-      - DB_NAME=${POSTGRES_NAME}
-      - DB_HOST=${POSTGRES_HOST}
-    links:
-      - database
     depends_on:
-      - database
+      - database_postgres
 
-  database:
+  database_postgres:
     image: postgres:14.5-alpine
-    container_name: database
-    env_file:
-      - .env
+    container_name: database_postgres
+    hostname: postgres
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
-    environment:
-      - POSTGRES_NAME=${POSTGRES_NAME}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    restart: unless-stopped
+
