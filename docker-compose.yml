@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   api:
@@ -9,26 +9,23 @@ services:
       - .env
     volumes:
       - .:/usr/app
-      - /usr/app/node_modules
     ports:
       - 3000:3000
     restart: on-failure
-    environment:
-      - DB_NAME=${POSTGRES_NAME}
-      - DB_HOST=${POSTGRES_HOST}
-    links:
-      - database
     depends_on:
       - database
+    networks:
+      - pagarme-credit-card-network
 
   database:
     image: postgres:14.5-alpine
+    hostname: database
     container_name: database
     env_file:
       - .env
-    ports:
-      - ${POSTGRES_PORT}:${POSTGRES_PORT}
-    environment:
-      - POSTGRES_NAME=${POSTGRES_NAME}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - pagarme-credit-card-network
+
+networks:
+  pagarme-credit-card-network:
+    name: pagarme-credit-card-network

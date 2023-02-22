@@ -24,6 +24,7 @@ model User {
   createdAt   DateTime    @default(now()) @map("created_at")
   updatedAt   DateTime    @updatedAt @map("updated_at")
   Wallet      Wallet[]
+
   @@map("users")
 }
 
@@ -36,6 +37,7 @@ model Wallet {
   createdAt          DateTime     @default(now()) @map("created_at")
   updatedAt          DateTime     @updatedAt @map("updated_at")
   CreditCard         CreditCard[]
+
   @@map("wallets")
 }
 
@@ -54,6 +56,7 @@ model CreditCard {
   updatedAt          DateTime      @updatedAt @map("updated_at")
   Transaction        Transaction[]
   Bill               Bill[]
+
   @@map("credit_card")
 }
 
@@ -64,6 +67,7 @@ model Transaction {
   creditCardId Int        @map("credit_card_id")
   createdAt    DateTime   @default(now()) @map("created_at")
   updatedAt    DateTime   @updatedAt @map("updated_at")
+
   @@map("transactions")
 }
 
@@ -75,5 +79,6 @@ model Bill {
   paid         Boolean    @default(false)
   createdAt    DateTime   @default(now()) @map("created_at")
   updatedAt    DateTime   @updatedAt @map("updated_at")
+
   @@map("bills")
 }
